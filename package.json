@@ -1,6 +1,6 @@
 {
   "name": "@raydium-io/raydium-sdk-v2",
-  "version": "0.1.105-alpha",
+  "version": "0.1.106-alpha",
   "description": "An SDK for building applications on top of Raydium.",
   "license": "GPL-3.0",
   "main": "./lib/index.js",
@@ -35,7 +35,7 @@
     "build": "yarn build-lib",
     "push": "yarn build && yarn publish",
     "prepare": "husky install",
-    "dev": "ts-node -r tsconfig-paths/register",
+    "dev": "node api.js && ts-node -r tsconfig-paths/register",
     "watch": "rm -rf lib && tsup src --watch --format cjs,esm --dts --sourcemap --no-splitting --minify -d lib"
   },
   "dependencies": {
