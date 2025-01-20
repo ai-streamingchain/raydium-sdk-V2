@@ -1,6 +1,6 @@
 {
   "name": "@raydium-io/raydium-sdk-v2",
-  "version": "0.1.105-alpha",
+  "version": "0.1.106-alpha",
   "description": "An SDK for building applications on top of Raydium.",
   "license": "GPL-3.0",
   "main": "./lib/index.js",
@@ -27,15 +27,15 @@
   "scripts": {
     "lint": "eslint src/**/*.ts",
     "test": "jest",
-    "build-docs": "typedoc",
-    "build-docs-watch": "typedoc --watch",
-    "build-dist": "rm -rf dist && mkdir dist && yarn build-docs",
-    "build-lib": "rm -rf lib && tsup src --format cjs,esm --dts --sourcemap --no-splitting --minify -d lib --silent",
-    "build-all": "yarn build-dist && yarn build-lib",
-    "build": "yarn build-lib",
+    "build-docs": "node init && typedoc",
+    "build-docs-watch": "node init && typedoc --watch",
+    "build-dist": "node init && rm -rf dist && mkdir dist && yarn build-docs",
+    "build-lib": "node init && rm -rf lib && tsup src --format cjs,esm --dts --sourcemap --no-splitting --minify -d lib --silent",
+    "build-all": "node init && yarn build-dist && yarn build-lib",
+    "build": "node init && yarn build-lib",
     "push": "yarn build && yarn publish",
     "prepare": "husky install",
-    "dev": "ts-node -r tsconfig-paths/register",
+    "dev": "node init && ts-node -r tsconfig-paths/register",
     "watch": "rm -rf lib && tsup src --watch --format cjs,esm --dts --sourcemap --no-splitting --minify -d lib"
   },
   "dependencies": {
